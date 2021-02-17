@@ -23,5 +23,11 @@ public class StringCalculatorTest {
 		assertThat(StringCalculator.Add("1,2"),is(3));
 		assertThat(StringCalculator.Add("1,3"),is(4));
 	}
+	
+	@Test
+	public void sumAnyNumbersCommaSerperated() {
+		assertThat(StringCalculator.Add("1,2,3"),is(6));
+		assertThat(StringCalculator.Add("1,2,3,4"),is(10));
+	}
 
 }

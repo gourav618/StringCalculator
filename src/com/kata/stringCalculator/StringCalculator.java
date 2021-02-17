@@ -1,15 +1,17 @@
 package com.kata.stringCalculator;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class StringCalculator {
 
 	public static int Add(String numbers) {
 		if(numbers.isEmpty())
 			return 0;
-		else if (numbers.contains(",")) {
-			String input[] = numbers.split(",");
-			return Integer.parseInt(input[0])+Integer.parseInt(input[1]);
+		else {
+			Stream<String> input  = Arrays.stream(numbers.split(","));
+			return input.mapToInt(Integer::parseInt).sum();
 		}
-		else
-			return Integer.parseInt(numbers);
+		
 	}
 }
