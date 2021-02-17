@@ -9,7 +9,7 @@ public class StringCalculator {
 		if(numbers.isEmpty())
 			return 0;
 		else {
-			Stream<String> input  = Arrays.stream(numbers.split(","));
+			Stream<String> input  = Arrays.stream(numbers.split(",|\n"));
 			return input.mapToInt(Integer::parseInt).sum();
 		}
 		

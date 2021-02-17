@@ -29,5 +29,16 @@ public class StringCalculatorTest {
 		assertThat(StringCalculator.Add("1,2,3"),is(6));
 		assertThat(StringCalculator.Add("1,2,3,4"),is(10));
 	}
+	
+	@Test
+	public void sumNumberDelimitedbyNewLine() {
+		assertThat(StringCalculator.Add("1\n2"),is(3));
+	}
+	
+	@Test
+	public void sumNumberDelimitedbyNewLineOrComma() {
+		assertThat(StringCalculator.Add("1\n2,3"),is(6));
+		assertThat(StringCalculator.Add("1,2\n3"),is(6));
+	}
 
 }
