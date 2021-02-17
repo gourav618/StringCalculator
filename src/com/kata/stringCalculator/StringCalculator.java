@@ -9,6 +9,7 @@ public class StringCalculator {
 	
 	private String delimeter;
 	private String numbers;
+	static int count = 0;
 	
 	private StringCalculator(String delimeter,String numbers) {
 		this.delimeter = delimeter;
@@ -40,8 +41,12 @@ public class StringCalculator {
 	}
 
 	public static int Add(String numbers) {
-		
+		count++;
 		return parseInt(numbers).sum();
+	}
+	
+	public static int getCalledCount() {
+		return count-1;
 	}
 	
 	private static StringCalculator parseInt(String input) {

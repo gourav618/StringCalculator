@@ -67,5 +67,14 @@ public class StringCalculatorTest {
 		StringCalculator.Add("1,-3,-5,13,-7");
 		StringCalculator.Add("//,\n1,-3,-5,13,-7");
 	}
+	
+	@Test
+	public void getHowManytimeAddCalled() {
+		assertThat(StringCalculator.Add("//;\n1;2"),is(3));
+		assertThat(StringCalculator.Add("//;\n1;2;3"),is(6));
+		assertThat(StringCalculator.Add("//;\n1;2;3"),is(6));
+		
+		assertThat(StringCalculator.getCalledCount(),is(3));
+	}
 
 }
