@@ -1,6 +1,7 @@
 package com.kata.stringCalculator;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -52,10 +53,19 @@ public class StringCalculator {
 	private static StringCalculator parseInt(String input) {
 		if(input.startsWith("//")) {
 			String [] parts = input.split("\n",2);
-			return new StringCalculator(parts[0].substring(2),parts[1]);
+			return new StringCalculator(parseDelimeter(parts[0]),parts[1]);
 		}
 		else {
 			return new StringCalculator(",|\n",input);
 		}
+	}
+	
+	private static String parseDelimeter(String header) {
+		String delimeter = header.substring(2);
+		if(delimeter.startsWith("[")) {
+			delimeter = delimeter.substring(1, delimeter.length()-1);
+		}
+		
+		return Pattern.quote(delimeter);
 	}
 }

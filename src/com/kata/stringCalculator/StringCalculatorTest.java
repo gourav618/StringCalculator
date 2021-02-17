@@ -82,5 +82,15 @@ public class StringCalculatorTest {
 		assertThat(StringCalculator.Add("1,1000"),is(1001));
 		assertThat(StringCalculator.Add("2,1003"),is(2));
 	}
+	
+	@Test
+	public void acceptDelimeterOfAnyLength() {
+		assertThat(StringCalculator.Add("//[***]\n1***2***3"),is(6));
+	}
+	
+	@Test
+	public void acceptSpecialCharacterAsDelimeter() {
+		assertThat(StringCalculator.Add("//.\n1.2.3"),is(6));
+	}
 
 }
