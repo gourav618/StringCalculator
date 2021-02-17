@@ -68,4 +68,3 @@ for example
 12. make sure you can also handle multiple delimiters with length longer than one char
 for example
 “//[**][%%]\n1**2%%3” == 6.
-For more info visit https://osherove.com or email roy@osherove.com 
