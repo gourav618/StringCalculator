@@ -40,5 +40,11 @@ public class StringCalculatorTest {
 		assertThat(StringCalculator.Add("1\n2,3"),is(6));
 		assertThat(StringCalculator.Add("1,2\n3"),is(6));
 	}
+	
+	@Test
+	public void sumNumberbyDelimiterSpecified() {
+		assertThat(StringCalculator.Add("//;\n1;2"),is(3));
+		assertThat(StringCalculator.Add("//;\n1;2;3"),is(6));
+	}
 
 }
