@@ -92,5 +92,15 @@ public class StringCalculatorTest {
 	public void acceptSpecialCharacterAsDelimeter() {
 		assertThat(StringCalculator.Add("//.\n1.2.3"),is(6));
 	}
+	
+	@Test
+	public void acceptMultipleDelimeter() {
+		assertThat(StringCalculator.Add("//[*][%]\n1*2%3"),is(6));
+	}
+	
+	@Test
+	public void acceptMultipleDelimeterAndLength() {
+		assertThat(StringCalculator.Add("//[***][%%%]\n1***2%%%3"),is(6));
+	}
 
 }

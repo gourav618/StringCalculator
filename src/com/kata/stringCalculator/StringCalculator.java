@@ -65,7 +65,8 @@ public class StringCalculator {
 		if(delimeter.startsWith("[")) {
 			delimeter = delimeter.substring(1, delimeter.length()-1);
 		}
-		
-		return Pattern.quote(delimeter);
+		return Stream.of(delimeter.split("]\\["))
+				.map(Pattern::quote)
+				.collect(Collectors.joining("|"));
 	}
 }
