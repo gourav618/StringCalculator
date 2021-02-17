@@ -4,7 +4,10 @@ import static org.hamcrest.CoreMatchers.is;
 
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.internal.runners.statements.ExpectException;
+import org.junit.rules.ExpectedException;
 
 public class StringCalculatorTest {
 	
@@ -45,6 +48,24 @@ public class StringCalculatorTest {
 	public void sumNumberbyDelimiterSpecified() {
 		assertThat(StringCalculator.Add("//;\n1;2"),is(3));
 		assertThat(StringCalculator.Add("//;\n1;2;3"),is(6));
+	}
+	
+	@Rule
+	public ExpectedException e = ExpectedException.none();
+	
+	@Test
+	public void throwOnInputOfNegativeNumber() {
+		e.expect(IllegalArgumentException.class);
+		e.expectMessage("negative not allowed : -3");
+		StringCalculator.Add("-3");
+	}
+	
+	@Test
+	public void throwOnInputOfNegativeNumbersWithAllNumber() {
+		e.expect(IllegalArgumentException.class);
+		e.expectMessage("negative not allowed : -3,-5,-7");
+		StringCalculator.Add("1,-3,-5,13,-7");
+		StringCalculator.Add("//,\n1,-3,-5,13,-7");
 	}
 
 }
