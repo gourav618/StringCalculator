@@ -36,7 +36,7 @@ public class StringCalculator {
 		}
 		else {
 			return Arrays.stream(numbers.split(delimeter))
-					.mapToInt(Integer::parseInt);
+					.mapToInt(Integer::parseInt).filter(i -> i<=1000);
 		}
 	}
 

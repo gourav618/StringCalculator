@@ -76,5 +76,11 @@ public class StringCalculatorTest {
 		
 		assertThat(StringCalculator.getCalledCount(),is(3));
 	}
+	
+	@Test
+	public void sumNumbersIgnoringValueGreaterThan1000() {
+		assertThat(StringCalculator.Add("1,1000"),is(1001));
+		assertThat(StringCalculator.Add("2,1003"),is(2));
+	}
 
 }
